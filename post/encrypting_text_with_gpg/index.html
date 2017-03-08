@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.18-DEV" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="charles@mims.io">
+<title>encrypting text with gpg - charles@mims.io</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="charles@mims.io"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">encrypting text with gpg</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2017-02-06">February 06, 2017</time></span>
+			<section itemprop="entry-text">
+				<p>+++
+title = &ldquo;encrypting text with gpg&rdquo;
+date = &ldquo;2016-11-04T16:29:05-05:00&rdquo;
++++</p>
+
+<p>This post is a quick-start guide to using gpg to encrypt and decrypt text for messages via email, slack, or just about any medium.  My gpg key is <code>F930E099</code> at the end of this post.  Read on for more details about how to use it!</p>
+
+<p>If you&rsquo;ve been paying attention to this year&rsquo;s Presidential campaign, you&rsquo;re probably aware of the impact that leaked emails can have on one&rsquo;s public image.  The thing that I&rsquo;m surprised I haven&rsquo;t heard anyone talking about is not whether it was a private email server or a government-secured server, but that any emails, not to mention classified material, are sent via unencrypted email.  Email is one of the least secure digital communication methods we have.  Did you know that when you send an email, it is routed through several, sometimes dozens of SMTP relays to get to the designated recipient and that it&rsquo;s typically stored in clear-text on each of those servers?  So why would anyone send anything that&rsquo;s potentially sensitive without encrypting it first?</p>
+
+<p>Encryption is easy.  SO easy.<br />
+If you&rsquo;re on OSX, check out <a href="https://gpgtools.org/">https://gpgtools.org/</a><br />
+Alternatively, you can install plain-old gpg using homebrew with <code>brew install gnupg</code></p>
+
+<p>The gist of how it works is that it uses public/private key pairs to encrypt and decrypt anything you want to protect.  Your private key does the decrypting and the signing.  If you sign something, gpg puts a hash of the text signed with your private key that others can then use your public key to verify was signed by you.  If someone wants to send something securely to you, they can encrypt it using your public key, and then only your private key can decrypt it.  It&rsquo;s fast.  It&rsquo;s easy.  It&rsquo;s strong.</p>
+
+<p>Getting set up only takes a few minutes and it&rsquo;s by far the most complicated part of using it.  Once you&rsquo;re set up you&rsquo;ll be able to encrypt anything in your terminal by piping the output to gpg.</p>
+
+<pre><code>cmims@MBP:~$ echo &quot;hello world&quot; | gpg -aer charles
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+hQIMA6DMPGAxLq4pARAAgyWebRr5wxCDV8MjpuxGycc8o5g9Xey4frtajZlAAH9O
+2FOYRDn2JpLF0NSCuV5GSH2yKEOpK5DEiks43cVdNGGz3wkeeHwW8kA+6LOy9kDg
+g+WPsWOdgK1uSAOqnZ+SSVnmVl/nqAr0Vw9Z6rhmc3+vkNbGLHsrBJgYz++dUGH8
+3AOaizY01JZoiKXzcOPjCb1lw5q2y3muZJky87gGOYvvGEsO1blocuCT+gO/5arT
+i2wSrTq885NN3mWzISjvcE8PwAV2jj34BMK/Wrr6wdVSic8KobOgHFv4y9UwfVhV
+yavdhqnp3eOeaJuB+3lxaVdzjhgMD25UqnLmrrqAQwoc5oCuUCus4ux07ezEqDID
+y7ILozPLN8IzrZFGbAW7faIc4bWXFWJZvr9cGeGFGYWej+99XxZ4gsm60Spmwoq2
+k3XstGYxunVrufeolc54CfprVz+AVpM2Vf+8wbklWUCImjorPSMLjy8ADOrW5Wnw
+lJ03WhZ7b+nY+x31KkFJRkmqUOUAecUwZk/1tHTMyp0Re/8nf0v9XBB72sZnR5Gp
+r5szv6ohwVfC/Jrv3MSwsgdqbaNtZ5YElwxCFY9P+4nNbd5/FgZHz5YR6t/viFfc
+vq+mYqnZ7fzFTKXaNSBDuQquXXCqeZJU5r/bGRECJbFce/swLTXrVXQ7jdUlL4fS
+RwFRftx6RLQrp77OjAG1+TldkA2lA9vnjawzyC14tW5PWjcWUaf6qJD1HY7EqbpR
+xg4NQNpUBYZiU3RC8RDrGbJM0jUT6waH
+=+5xO
+-----END PGP MESSAGE-----
+</code></pre>
+
+<p>If you&rsquo;re so inclined, you can even have the output of gpg go directly into your paste buffer:
+<code>$ echo &quot;hello world&quot; | gpg -aer charles | pbcopy</code></p>
+
+<p>This example makes use of OSX&rsquo;s built-in pbcopy and pbpaste commands which read text into or paste out of your clipboard (PasteBoard).</p>
+
+<p>Decrypting text which has been encrypted to you is as simple as copying the text, then&hellip;</p>
+
+<pre><code>cmims@MBP:~$ pbpaste | gpg -d
+
+You need a passphrase to unlock the secret key for
+user: &quot;Charles Mims &lt;charles@mims.io&gt;&quot;
+4096-bit RSA key, ID EA71F93E, created 2017-01-18 (main key ID F930E099)
+
+gpg: encrypted with 4096-bit RSA key, ID EA71F93E, created 2017-01-18
+      &quot;Charles Mims &lt;charles@mims.io&gt;&quot;
+hello world
+</code></pre>
+
+<p>Once you have gpg installed, you can create your own gpg key like this:<br />
+<code>gpg --gen-key</code><br />
+The defaults are good.  Use your real name and real email address.  People will be able to use these to find your key once you upload it to a keyserver.</p>
+
+<p>You can export a backup of your private key to a file that you should then keep in a safe place with <code>gpg --export-secret-keys --armor &gt; my_gpg_backup.asc</code></p>
+
+<p>Then, to push your key to a public keyserver do <code>gpg --keyserver hkp://pgp.mit.edu --send-key KEYNAME</code></p>
+
+<p>Once your public key is on a keyserver, anyone who wants to communicate with you securely can find your public key and encrypt things to you so that only someone who has your private key (and if you set one on it your password) can decrypt it.  We&rsquo;re talking hundreds-of-years-for-the-best-supercomputers-to-crack-it good secure.</p>
+
+<p>Want to search for someone&rsquo;s key?
+<code>gpg --search Bob Dobbs</code> will find keys registered to our friend Bob.  You can also search by email address.</p>
+
+<p>There are a lot of other commands that you can find about by reading the <code>gpg --help</code> documentation or googling about it, but the above should get you started.  One thing you should read about is webs of trust. When you search for the key of someone you know, you can download that key.  Before you explicitly trust that it belongs to the person you know, you should verify it by getting the fingerprint of the key (<code>gpg --fingerprint FRIENDSNAME</code>) and calling either the person who it belongs to or someone who you know has already verified their key and confirming that you have the right key.<br />
+Once you&rsquo;re sure you&rsquo;ve got the right key, you can assign trust to it either locally or publically.  Giving someone&rsquo;s key public trust is like vouching for the authenticity of that key.  The more people who publicly sign keys, the more credibility that key has.  Use public trust carefully, but use it!</p>
+
+<p>Ok, that&rsquo;s all for now.  I may elaborate on this later.  Here&rsquo;s my key.</p>
+
+<pre><code>cmims@MBP:~$ gpg --finger F930E099
+pub   4096R/F930E099 2017-01-18
+      Key fingerprint = 2120 3B5D 5F75 FF61 814C  A3A5 81C6 2E56 F930 E099
+      uid       [ultimate] Charles Mims &lt;charles@mims.io&gt;
+      sub   4096R/EA71F93E 2017-01-18
+
+cmims@MBP:~$ gpg --export --armor F930E099
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+=zX3b
+-----END PGP PUBLIC KEY BLOCK-----
+</code></pre>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:charles@mims.io" target="_blank">Email</a>
+			<a href="https://twitter.com/charlesmims" target="_blank">Twitter</a>
+			
+			<a href="https://github.com/charlesmims/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; Charles Mims 2016</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

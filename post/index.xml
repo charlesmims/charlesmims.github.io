@@ -152,6 +152,66 @@ z/xQkeM1reuLuCEpryXM4EZ/7EmgAFWD3fUdyZMhwL5uZR8/FuB1Yqt5I3k=
     </item>
     
     <item>
+      <title>Calling an API with go</title>
+      <link>http://mims.io/post/calling_go_api/</link>
+      <pubDate>Thu, 19 Jan 2017 10:25:27 -0600</pubDate>
+      
+      <guid>http://mims.io/post/calling_go_api/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been trying to learn go (golang) over the past couple months.  The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&amp;rsquo;m still working on getting really comfortable thinking in go.  Coming from python, I find the language beautiful, but not quite natural.  I&amp;rsquo;m getting there.&lt;/p&gt;
+
+&lt;p&gt;I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+	&amp;quot;encoding/json&amp;quot;
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;io/ioutil&amp;quot;
+	&amp;quot;log&amp;quot;
+	&amp;quot;net/http&amp;quot;
+)
+
+type (
+	Notice struct {
+		ID      string `json:&amp;quot;id&amp;quot;`
+		Message string `json:&amp;quot;message&amp;quot;`
+		URL     string `json:&amp;quot;url,omitempty&amp;quot;`
+	}
+
+	Amount struct {
+		Data struct {
+			Amount   string `json:&amp;quot;amount&amp;quot;`
+			Currency string `json:&amp;quot;currency&amp;quot;`
+		} `json:&amp;quot;data&amp;quot;`
+		Warnings []*Notice `json:&amp;quot;warnings,omitempty&amp;quot;`
+	}
+)
+
+func main() {
+	resp, err := http.Get(&amp;quot;https://api.coinbase.com/v2/prices/spot?currency=USD&amp;quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+	data, err := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	var dec Amount
+	json.Unmarshal(data, &amp;amp;dec)
+	fmt.Printf(&amp;quot;%s\n&amp;quot;, dec.Data.Amount)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To build this, I run &lt;code&gt;go build -o btc&lt;/code&gt; in the directory where I have this saved as btc.go.  I then copy the file &lt;code&gt;btc&lt;/code&gt; into my path at &lt;code&gt;/usr/local/bin&lt;/code&gt; and now I can run &lt;code&gt;btc&lt;/code&gt; and get the current bitcoin price.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cmims@MBP:~$ btc
+964.15
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>use bitcoin!</title>
       <link>http://mims.io/post/use_bitcoin/</link>
       <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>

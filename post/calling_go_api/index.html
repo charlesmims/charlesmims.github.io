@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.18-DEV" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="charles@mims.io">
+<title>Calling an API with go - charles@mims.io</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="charles@mims.io"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Calling an API with go</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2017-01-19">January 19, 2017</time></span>
+			<section itemprop="entry-text">
+				<p>I&rsquo;ve been trying to learn go (golang) over the past couple months.  The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go.  Coming from python, I find the language beautiful, but not quite natural.  I&rsquo;m getting there.</p>
+
+<p>I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.</p>
+
+<pre><code>package main
+
+import (
+	&quot;encoding/json&quot;
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+)
+
+type (
+	Notice struct {
+		ID      string `json:&quot;id&quot;`
+		Message string `json:&quot;message&quot;`
+		URL     string `json:&quot;url,omitempty&quot;`
+	}
+
+	Amount struct {
+		Data struct {
+			Amount   string `json:&quot;amount&quot;`
+			Currency string `json:&quot;currency&quot;`
+		} `json:&quot;data&quot;`
+		Warnings []*Notice `json:&quot;warnings,omitempty&quot;`
+	}
+)
+
+func main() {
+	resp, err := http.Get(&quot;https://api.coinbase.com/v2/prices/spot?currency=USD&quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+	data, err := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	var dec Amount
+	json.Unmarshal(data, &amp;dec)
+	fmt.Printf(&quot;%s\n&quot;, dec.Data.Amount)
+}
+</code></pre>
+
+<p>To build this, I run <code>go build -o btc</code> in the directory where I have this saved as btc.go.  I then copy the file <code>btc</code> into my path at <code>/usr/local/bin</code> and now I can run <code>btc</code> and get the current bitcoin price.</p>
+
+<pre><code>cmims@MBP:~$ btc
+964.15
+</code></pre>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:charles@mims.io" target="_blank">Email</a>
+			<a href="https://twitter.com/charlesmims" target="_blank">Twitter</a>
+			
+			<a href="https://github.com/charlesmims/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; Charles Mims 2016</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

@@ -10,6 +10,24 @@
     <atom:link href="http://mims.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>cassandra_tuning</title>
+      <link>http://mims.io/post/cassandra_tuning/</link>
+      <pubDate>Fri, 10 Mar 2017 12:11:05 -0600</pubDate>
+      
+      <guid>http://mims.io/post/cassandra_tuning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cassandra_tuning</title>
+      <link>http://mims.io/post/cassandra_tuning/</link>
+      <pubDate>Fri, 10 Mar 2017 12:11:05 -0600</pubDate>
+      
+      <guid>http://mims.io/post/cassandra_tuning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>use bitcoin!</title>
       <link>http://mims.io/post/use_bitcoin/</link>
       <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>

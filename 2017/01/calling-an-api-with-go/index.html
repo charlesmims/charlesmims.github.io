@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Calling an API with go" />
+<meta property="og:description" content="I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
+I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mims.io/2017/01/calling-an-api-with-go/" />
+
+
+
+<meta property="article:published_time" content="2017-01-19T10:25:27-06:00"/>
+<meta property="article:modified_time" content="2017-01-19T10:25:27-06:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Calling an API with go"/>
+<meta name="twitter:title" content="Calling an API with go"/>
+<meta name="twitter:description" content="I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
+I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout."/>
+<meta name="twitter:site" content="@charlesmims"/>
+<meta name="generator" content="Hugo 0.25.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Calling an API with go",
+  "url": "http://mims.io/2017/01/calling-an-api-with-go/",
+  "wordCount": "204",
+  "datePublished": "2017-01-19T10:25:27-06:00",
+  "dateModified": "2017-01-19T10:25:27-06:00",
+  "author": {
+    "@type": "Person",
+    "name": "Charles Mims"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://mims.io/2017/01/calling-an-api-with-go/">
+
+    <title>Calling an API with go | Charles&#39; Blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://mims.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-87949450-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://mims.io/">Home</a>
+          
+          
+          <a class="nav-link" href="http://mims.io/about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://mims.io/" rel="home">Charles' Blog</a></h1>
+        <p class="lead blog-description">Software, DevOps, Food Hacking, DIY, whatever.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/01/calling-an-api-with-go/">Calling an API with go</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-01-19T10:25:27-06:00">Thu Jan 19, 2017</time> by Charles Mims</p>
+  </header>
+  <p>I&rsquo;ve been trying to learn go (golang) over the past couple months.  The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go.  Coming from python, I find the language beautiful, but not quite natural.  I&rsquo;m getting there.</p>
+
+<p>I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.</p>
+
+<pre><code>package main
+
+import (
+  &quot;encoding/json&quot;
+  &quot;fmt&quot;
+  &quot;io/ioutil&quot;
+  &quot;log&quot;
+  &quot;net/http&quot;
+)
+
+type (
+  Notice struct {
+    ID      string `json:&quot;id&quot;`
+    Message string `json:&quot;message&quot;`
+    URL     string `json:&quot;url,omitempty&quot;`
+  }
+
+  Amount struct {
+    Data struct {
+      Amount   string `json:&quot;amount&quot;`
+      Currency string `json:&quot;currency&quot;`
+    } `json:&quot;data&quot;`
+    Warnings []*Notice `json:&quot;warnings,omitempty&quot;`
+  }
+)
+
+func main() {
+  client := &amp;http.Client{}
+  req, err := http.NewRequest(&quot;GET&quot;, &quot;https://api.coinbase.com/v2/prices/spot?currency=USD&quot;, nil)
+  if err != nil {
+    log.Fatal(err)
+  }
+  req.Header.Set(&quot;CB-VERSION&quot;,&quot;2017-06-21&quot;)
+  resp, err := client.Do(req)
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer resp.Body.Close()
+  data, err := ioutil.ReadAll(resp.Body)
+  resp.Body.Close()
+  if err != nil {
+    log.Fatal(err)
+  }
+  var dec Amount
+  json.Unmarshal(data, &amp;dec)
+  fmt.Printf(&quot;%s\n&quot;, dec.Data.Amount)
+}
+</code></pre>
+
+<p>To build this, I ran <code>go install</code> in the directory where I have this saved as main.go (~/go/src/github.com/charlesmims/btc).  Now I can run <code>btc</code> and get the current bitcoin price.</p>
+
+<pre><code>cmims@MBP:~$ btc
+964.15
+</code></pre>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmims.io%2f2017%2f01%2fcalling-an-api-with-go%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fmims.io%2f2017%2f01%2fcalling-an-api-with-go%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fmims.io%2f2017%2f01%2fcalling-an-api-with-go%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fmims.io%2f2017%2f01%2fcalling-an-api-with-go%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Some of what I think about DevOps, Programming, Food, DIY or whatever I want.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/07/functional-programming-in-scala/">Functional Programming in Scala</a></li>
+
+<li><a href="/2017/01/calling-an-api-with-go/">Calling an API with go</a></li>
+
+<li><a href="/2016/11/bitcoin/">bitcoin!</a></li>
+
+<li><a href="/2016/11/encrypting-text-with-gpg/">encrypting text with gpg</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Charles Mims 2017
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

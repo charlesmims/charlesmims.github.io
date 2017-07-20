@@ -1,232 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on charles@mims.io</title>
-    <link>http://mims.io/post/index.xml</link>
-    <description>Recent content in Posts on charles@mims.io</description>
+    <title>Posts on Charles&#39; Blog</title>
+    <link>http://mims.io/post/</link>
+    <description>Recent content in Posts on Charles&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Charles Mims 2016</copyright>
-    <lastBuildDate>Mon, 06 Feb 2017 14:10:59 -0600</lastBuildDate>
-    <atom:link href="http://mims.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>Charles Mims 2017</copyright>
+    <lastBuildDate>Thu, 20 Jul 2017 13:07:12 -0500</lastBuildDate>
+    
+	<atom:link href="http://mims.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>encrypting text with gpg</title>
-      <link>http://mims.io/post/encrypting_text_with_gpg/</link>
-      <pubDate>Mon, 06 Feb 2017 14:10:59 -0600</pubDate>
+      <title>Functional Programming in Scala</title>
+      <link>http://mims.io/2017/07/functional-programming-in-scala/</link>
+      <pubDate>Thu, 20 Jul 2017 13:07:12 -0500</pubDate>
       
-      <guid>http://mims.io/post/encrypting_text_with_gpg/</guid>
-      <description>&lt;p&gt;This post is a quick-start guide to using gpg to encrypt and decrypt text for messages via email, slack, or just about any medium.  My gpg key is &lt;code&gt;F930E099&lt;/code&gt; at the end of this post.  Read on for more details about how to use it!&lt;/p&gt;
-
-&lt;p&gt;If you&amp;rsquo;ve been paying attention to this year&amp;rsquo;s Presidential campaign, you&amp;rsquo;re probably aware of the impact that leaked emails can have on one&amp;rsquo;s public image.  The thing that I&amp;rsquo;m surprised I haven&amp;rsquo;t heard anyone talking about is not whether it was a private email server or a government-secured server, but that any emails, not to mention classified material, are sent via unencrypted email.  Email is one of the least secure digital communication methods we have.  Did you know that when you send an email, it is routed through several, sometimes dozens of SMTP relays to get to the designated recipient and that it&amp;rsquo;s typically stored in clear-text on each of those servers?  So why would anyone send anything that&amp;rsquo;s potentially sensitive without encrypting it first?&lt;/p&gt;
-
-&lt;p&gt;Encryption is easy.  SO easy.&lt;br /&gt;
-If you&amp;rsquo;re on OSX, check out &lt;a href=&#34;https://gpgtools.org/&#34;&gt;https://gpgtools.org/&lt;/a&gt;&lt;br /&gt;
-Alternatively, you can install plain-old gpg using homebrew with &lt;code&gt;brew install gnupg&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The gist of how it works is that it uses public/private key pairs to encrypt and decrypt anything you want to protect.  Your private key does the decrypting and the signing.  If you sign something, gpg puts a hash of the text signed with your private key that others can then use your public key to verify was signed by you.  If someone wants to send something securely to you, they can encrypt it using your public key, and then only your private key can decrypt it.  It&amp;rsquo;s fast.  It&amp;rsquo;s easy.  It&amp;rsquo;s strong.&lt;/p&gt;
-
-&lt;p&gt;Getting set up only takes a few minutes and it&amp;rsquo;s by far the most complicated part of using it.  Once you&amp;rsquo;re set up you&amp;rsquo;ll be able to encrypt anything in your terminal by piping the output to gpg.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cmims@MBP:~$ echo &amp;quot;hello world&amp;quot; | gpg -aer charles
------BEGIN PGP MESSAGE-----
-Version: GnuPG v1
-
-hQIMA6DMPGAxLq4pARAAgyWebRr5wxCDV8MjpuxGycc8o5g9Xey4frtajZlAAH9O
-2FOYRDn2JpLF0NSCuV5GSH2yKEOpK5DEiks43cVdNGGz3wkeeHwW8kA+6LOy9kDg
-g+WPsWOdgK1uSAOqnZ+SSVnmVl/nqAr0Vw9Z6rhmc3+vkNbGLHsrBJgYz++dUGH8
-3AOaizY01JZoiKXzcOPjCb1lw5q2y3muZJky87gGOYvvGEsO1blocuCT+gO/5arT
-i2wSrTq885NN3mWzISjvcE8PwAV2jj34BMK/Wrr6wdVSic8KobOgHFv4y9UwfVhV
-yavdhqnp3eOeaJuB+3lxaVdzjhgMD25UqnLmrrqAQwoc5oCuUCus4ux07ezEqDID
-y7ILozPLN8IzrZFGbAW7faIc4bWXFWJZvr9cGeGFGYWej+99XxZ4gsm60Spmwoq2
-k3XstGYxunVrufeolc54CfprVz+AVpM2Vf+8wbklWUCImjorPSMLjy8ADOrW5Wnw
-lJ03WhZ7b+nY+x31KkFJRkmqUOUAecUwZk/1tHTMyp0Re/8nf0v9XBB72sZnR5Gp
-r5szv6ohwVfC/Jrv3MSwsgdqbaNtZ5YElwxCFY9P+4nNbd5/FgZHz5YR6t/viFfc
-vq+mYqnZ7fzFTKXaNSBDuQquXXCqeZJU5r/bGRECJbFce/swLTXrVXQ7jdUlL4fS
-RwFRftx6RLQrp77OjAG1+TldkA2lA9vnjawzyC14tW5PWjcWUaf6qJD1HY7EqbpR
-xg4NQNpUBYZiU3RC8RDrGbJM0jUT6waH
-=+5xO
------END PGP MESSAGE-----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you&amp;rsquo;re so inclined, you can even have the output of gpg go directly into your paste buffer:
-&lt;code&gt;$ echo &amp;quot;hello world&amp;quot; | gpg -aer charles | pbcopy&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This example makes use of OSX&amp;rsquo;s built-in pbcopy and pbpaste commands which read text into or paste out of your clipboard (PasteBoard).&lt;/p&gt;
-
-&lt;p&gt;Decrypting text which has been encrypted to you is as simple as copying the text, then&amp;hellip;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cmims@MBP:~$ pbpaste | gpg -d
-
-You need a passphrase to unlock the secret key for
-user: &amp;quot;Charles Mims &amp;lt;charles@mims.io&amp;gt;&amp;quot;
-4096-bit RSA key, ID EA71F93E, created 2017-01-18 (main key ID F930E099)
-
-gpg: encrypted with 4096-bit RSA key, ID EA71F93E, created 2017-01-18
-      &amp;quot;Charles Mims &amp;lt;charles@mims.io&amp;gt;&amp;quot;
-hello world
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Once you have gpg installed, you can create your own gpg key like this:&lt;br /&gt;
-&lt;code&gt;gpg --gen-key&lt;/code&gt;&lt;br /&gt;
-The defaults are good.  Use your real name and real email address.  People will be able to use these to find your key once you upload it to a keyserver.&lt;/p&gt;
-
-&lt;p&gt;You can export a backup of your private key to a file that you should then keep in a safe place with &lt;code&gt;gpg --export-secret-keys --armor &amp;gt; my_gpg_backup.asc&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then, to push your key to a public keyserver do &lt;code&gt;gpg --keyserver hkp://pgp.mit.edu --send-key KEYNAME&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Once your public key is on a keyserver, anyone who wants to communicate with you securely can find your public key and encrypt things to you so that only someone who has your private key (and if you set one on it your password) can decrypt it.  We&amp;rsquo;re talking hundreds-of-years-for-the-best-supercomputers-to-crack-it good secure.&lt;/p&gt;
-
-&lt;p&gt;Want to search for someone&amp;rsquo;s key?
-&lt;code&gt;gpg --search Bob Dobbs&lt;/code&gt; will find keys registered to our friend Bob.  You can also search by email address.&lt;/p&gt;
-
-&lt;p&gt;There are a lot of other commands that you can find about by reading the &lt;code&gt;gpg --help&lt;/code&gt; documentation or googling about it, but the above should get you started.  One thing you should read about is webs of trust. When you search for the key of someone you know, you can download that key.  Before you explicitly trust that it belongs to the person you know, you should verify it by getting the fingerprint of the key (&lt;code&gt;gpg --fingerprint FRIENDSNAME&lt;/code&gt;) and calling either the person who it belongs to or someone who you know has already verified their key and confirming that you have the right key.&lt;br /&gt;
-Once you&amp;rsquo;re sure you&amp;rsquo;ve got the right key, you can assign trust to it either locally or publically.  Giving someone&amp;rsquo;s key public trust is like vouching for the authenticity of that key.  The more people who publicly sign keys, the more credibility that key has.  Use public trust carefully, but use it!&lt;/p&gt;
-
-&lt;p&gt;Ok, that&amp;rsquo;s all for now.  I may elaborate on this later.  Here&amp;rsquo;s my key.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cmims@MBP:~$ gpg --finger F930E099
-pub   4096R/F930E099 2017-01-18
-      Key fingerprint = 2120 3B5D 5F75 FF61 814C  A3A5 81C6 2E56 F930 E099
-      uid       [ultimate] Charles Mims &amp;lt;charles@mims.io&amp;gt;
-      sub   4096R/EA71F93E 2017-01-18
-
-cmims@MBP:~$ gpg --export --armor F930E099
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-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
-=zX3b
------END PGP PUBLIC KEY BLOCK-----
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://mims.io/2017/07/functional-programming-in-scala/</guid>
+      <description>I&amp;rsquo;ve just completed the first course in the coursera scala specialization series of courses, Functional Programming Principles in Scala.
+I&amp;rsquo;m not going to lie, it&amp;rsquo;s a tough course that challenged my hack-it-together python background. My python workflow goes something like this:
+Using sublimetext, write a function that takes some object, usually a list or dict, some strings or ints, etc., and return a dict or list, etc. Copy that function and paste it in ipython.</description>
     </item>
     
     <item>
       <title>Calling an API with go</title>
-      <link>http://mims.io/post/calling_go_api/</link>
+      <link>http://mims.io/2017/01/calling-an-api-with-go/</link>
       <pubDate>Thu, 19 Jan 2017 10:25:27 -0600</pubDate>
       
-      <guid>http://mims.io/post/calling_go_api/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been trying to learn go (golang) over the past couple months.  The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&amp;rsquo;m still working on getting really comfortable thinking in go.  Coming from python, I find the language beautiful, but not quite natural.  I&amp;rsquo;m getting there.&lt;/p&gt;
-
-&lt;p&gt;I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;package main
-
-import (
-	&amp;quot;encoding/json&amp;quot;
-	&amp;quot;fmt&amp;quot;
-	&amp;quot;io/ioutil&amp;quot;
-	&amp;quot;log&amp;quot;
-	&amp;quot;net/http&amp;quot;
-)
-
-type (
-	Notice struct {
-		ID      string `json:&amp;quot;id&amp;quot;`
-		Message string `json:&amp;quot;message&amp;quot;`
-		URL     string `json:&amp;quot;url,omitempty&amp;quot;`
-	}
-
-	Amount struct {
-		Data struct {
-			Amount   string `json:&amp;quot;amount&amp;quot;`
-			Currency string `json:&amp;quot;currency&amp;quot;`
-		} `json:&amp;quot;data&amp;quot;`
-		Warnings []*Notice `json:&amp;quot;warnings,omitempty&amp;quot;`
-	}
-)
-
-func main() {
-	resp, err := http.Get(&amp;quot;https://api.coinbase.com/v2/prices/spot?currency=USD&amp;quot;)
-	if err != nil {
-		log.Fatal(err)
-	}
-	data, err := ioutil.ReadAll(resp.Body)
-	resp.Body.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	var dec Amount
-	json.Unmarshal(data, &amp;amp;dec)
-	fmt.Printf(&amp;quot;%s\n&amp;quot;, dec.Data.Amount)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To build this, I run &lt;code&gt;go build -o btc&lt;/code&gt; in the directory where I have this saved as btc.go.  I then copy the file &lt;code&gt;btc&lt;/code&gt; into my path at &lt;code&gt;/usr/local/bin&lt;/code&gt; and now I can run &lt;code&gt;btc&lt;/code&gt; and get the current bitcoin price.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cmims@MBP:~$ btc
-964.15
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://mims.io/2017/01/calling-an-api-with-go/</guid>
+      <description>I&amp;rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&amp;rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&amp;rsquo;m getting there.
+I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.</description>
     </item>
     
     <item>
-      <title>use bitcoin!</title>
-      <link>http://mims.io/post/use_bitcoin/</link>
+      <title>bitcoin!</title>
+      <link>http://mims.io/2016/11/bitcoin/</link>
       <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>
       
-      <guid>http://mims.io/post/use_bitcoin/</guid>
-      <description>
-
-&lt;p&gt;&lt;center&gt;
-&lt;img src=&#34;http://mims.io/images/btc_receive.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1bgd6mp4f6snfsjdzzsvrtfy5x98bry4yj&#34;&gt;1Bgd6mP4f6snFsjdZzSVrtfY5X98BRY4Yj&lt;/h2&gt;
-
-&lt;p&gt;&lt;/center&gt;
-Bitcoin is a form of currency that, like other currencies, is traded in open markets.  Unlike other currencies, it&amp;rsquo;s based on something real (computer processor time and mathematical limits) and is actually a limited commodity.  Also unlike other currencies, it&amp;rsquo;s very difficult to steal and can&amp;rsquo;t be faked.  In my estimation, that makes it more valuable than the dollar.  The only strength the dollar has over bitcoin is that it&amp;rsquo;s accepted in more places.  The more people who use bitcoin, however, the more places are likely to accept it.  So, if you feel like buying me a beer or whatever, set yourself up a bitcoin wallet (if you don&amp;rsquo;t have one already) and send me a little!&lt;/p&gt;
-
-&lt;p&gt;Here are a some links to help you get started.
-- Manage your wallet at &lt;a href=&#34;https://blockchain.info/wallet/#/&#34;&gt;https://blockchain.info/wallet/#/&lt;/a&gt;
-- Buy bitcoin at &lt;a href=&#34;https://www.coinbase.com/&#34;&gt;https://www.coinbase.com/&lt;/a&gt;
-- Track the market at &lt;a href=&#34;https://bitcoinwisdom.com/&#34;&gt;https://bitcoinwisdom.com/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://mims.io/2016/11/bitcoin/</guid>
+      <description>You&amp;rsquo;ve probably heard of a thing called bitcoin. &amp;ldquo;It uses blockchain. It&amp;rsquo;s awesome!&amp;rdquo; Right? But what is it? Why should you use it? How can you get started?
+Check out bitcoin.org/en and you&amp;rsquo;ll see a concise explanation: &amp;ldquo;Bitcoin uses peer-to-peer technology to operate with no central authority or banks; managing transactions and the issuing of bitcoins is carried out collectively by the network. Bitcoin is open-source; its design is public, nobody owns or controls Bitcoin and everyone can take part.</description>
+    </item>
+    
+    <item>
+      <title>encrypting text with gpg</title>
+      <link>http://mims.io/2016/11/encrypting-text-with-gpg/</link>
+      <pubDate>Fri, 04 Nov 2016 16:29:05 -0500</pubDate>
+      
+      <guid>http://mims.io/2016/11/encrypting-text-with-gpg/</guid>
+      <description>This post is a quick-start guide to using gpg to encrypt and decrypt text for messages via email, slack, or just about any medium. My gpg key is F930E099 at the end of this post. Read on for more details about how to use it!
+If you&amp;rsquo;ve been paying attention to this year&amp;rsquo;s Presidential campaign, you&amp;rsquo;re probably aware of the impact that leaked emails can have on one&amp;rsquo;s public image. The thing that I&amp;rsquo;m surprised I haven&amp;rsquo;t heard anyone talking about is not whether it was a private email server or a government-secured server, but that any emails, not to mention classified material, are sent via unencrypted email.</description>
     </item>
     
   </channel>

@@ -1,58 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>charles@mims.io</title>
-    <link>http://mims.io/tags/index.xml</link>
-    <description>Recent content on charles@mims.io</description>
+    <title>Tags on Charles&#39; Blog</title>
+    <link>http://mims.io/tags/</link>
+    <description>Recent content in Tags on Charles&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Charles Mims 2016</copyright>
-    <atom:link href="http://mims.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>Charles Mims 2017</copyright>
+    <lastBuildDate>Thu, 20 Jul 2017 13:07:12 -0500</lastBuildDate>
+    
+	<atom:link href="http://mims.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>use bitcoin!</title>
-      <link>http://mims.io/post/use_bitcoin/</link>
-      <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>
+      <title>Links</title>
+      <link>http://mims.io/tags/links/</link>
+      <pubDate>Thu, 20 Jul 2017 13:07:12 -0500</pubDate>
       
-      <guid>http://mims.io/post/use_bitcoin/</guid>
-      <description>
-
-&lt;p&gt;&lt;center&gt;
-&lt;img src=&#34;http://mims.io/images/btc_receive.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1bgd6mp4f6snfsjdzzsvrtfy5x98bry4yj&#34;&gt;1Bgd6mP4f6snFsjdZzSVrtfY5X98BRY4Yj&lt;/h2&gt;
-
-&lt;p&gt;&lt;/center&gt;
-Bitcoin is a form of currency that, like other currencies, is traded in open markets.  Unlike other currencies, it&amp;rsquo;s based on something real (computer processor time and mathematical limits) and is actually a limited commodity.  Also unlike other currencies, it&amp;rsquo;s very difficult to steal and can&amp;rsquo;t be faked.  In my estimation, that makes it more valuable than the dollar.  The only strength the dollar has over bitcoin is that it&amp;rsquo;s accepted in more places.  The more people who use bitcoin, however, the more places are likely to accept it.  So, if you feel like buying me a beer or whatever, set yourself up a bitcoin wallet (if you don&amp;rsquo;t have one already) and send me a little!&lt;/p&gt;
-
-&lt;p&gt;Here are a some links to help you get started.
-- Manage your wallet at &lt;a href=&#34;https://blockchain.info/wallet/#/&#34;&gt;https://blockchain.info/wallet/#/&lt;/a&gt;
-- Buy bitcoin at &lt;a href=&#34;https://www.coinbase.com/&#34;&gt;https://www.coinbase.com/&lt;/a&gt;
-- Track the market at &lt;a href=&#34;https://bitcoinwisdom.com/&#34;&gt;https://bitcoinwisdom.com/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://mims.io/tags/links/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>use bitcoin!</title>
-      <link>http://mims.io/post/use_bitcoin/</link>
+      <title>Ramblings</title>
+      <link>http://mims.io/tags/ramblings/</link>
       <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>
       
-      <guid>http://mims.io/post/use_bitcoin/</guid>
-      <description>
-
-&lt;p&gt;&lt;center&gt;
-&lt;img src=&#34;http://mims.io/images/btc_receive.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1bgd6mp4f6snfsjdzzsvrtfy5x98bry4yj&#34;&gt;1Bgd6mP4f6snFsjdZzSVrtfY5X98BRY4Yj&lt;/h2&gt;
-
-&lt;p&gt;&lt;/center&gt;
-Bitcoin is a form of currency that, like other currencies, is traded in open markets.  Unlike other currencies, it&amp;rsquo;s based on something real (computer processor time and mathematical limits) and is actually a limited commodity.  Also unlike other currencies, it&amp;rsquo;s very difficult to steal and can&amp;rsquo;t be faked.  In my estimation, that makes it more valuable than the dollar.  The only strength the dollar has over bitcoin is that it&amp;rsquo;s accepted in more places.  The more people who use bitcoin, however, the more places are likely to accept it.  So, if you feel like buying me a beer or whatever, set yourself up a bitcoin wallet (if you don&amp;rsquo;t have one already) and send me a little!&lt;/p&gt;
-
-&lt;p&gt;Here are a some links to help you get started.
-- Manage your wallet at &lt;a href=&#34;https://blockchain.info/wallet/#/&#34;&gt;https://blockchain.info/wallet/#/&lt;/a&gt;
-- Buy bitcoin at &lt;a href=&#34;https://www.coinbase.com/&#34;&gt;https://www.coinbase.com/&lt;/a&gt;
-- Track the market at &lt;a href=&#34;https://bitcoinwisdom.com/&#34;&gt;https://bitcoinwisdom.com/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://mims.io/tags/ramblings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scala</title>
+      <link>http://mims.io/tags/scala/</link>
+      <pubDate>Thu, 20 Jul 2017 13:07:12 -0500</pubDate>
+      
+      <guid>http://mims.io/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Speculation</title>
+      <link>http://mims.io/tags/speculation/</link>
+      <pubDate>Wed, 23 Nov 2016 12:42:28 -0600</pubDate>
+      
+      <guid>http://mims.io/tags/speculation/</guid>
+      <description></description>
     </item>
     
   </channel>

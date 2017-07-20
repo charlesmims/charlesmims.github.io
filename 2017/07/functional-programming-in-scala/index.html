@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Functional Programming in Scala" />
+<meta property="og:description" content="description" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mims.io/2017/07/functional-programming-in-scala/" />
+
+
+
+<meta property="article:published_time" content="2017-07-20T13:07:12-05:00"/>
+<meta property="article:modified_time" content="2017-07-20T13:07:12-05:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Functional Programming in Scala"/>
+<meta name="twitter:title" content="Functional Programming in Scala"/>
+<meta name="twitter:description" content="description"/>
+<meta name="twitter:site" content="@charlesmims"/>
+<meta name="generator" content="Hugo 0.25.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Functional Programming in Scala",
+  "url": "http://mims.io/2017/07/functional-programming-in-scala/",
+  "wordCount": "266",
+  "datePublished": "2017-07-20T13:07:12-05:00",
+  "dateModified": "2017-07-20T13:07:12-05:00",
+  "author": {
+    "@type": "Person",
+    "name": "author"
+  },
+  "keywords": "scala, links",
+  "description": "description"
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://mims.io/2017/07/functional-programming-in-scala/">
+
+    <title>Functional Programming in Scala | Charles&#39; Blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://mims.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-87949450-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://mims.io/">Home</a>
+          
+          
+          <a class="nav-link" href="http://mims.io/about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://mims.io/" rel="home">Charles' Blog</a></h1>
+        <p class="lead blog-description">Software, DevOps, Food Hacking, DIY, whatever.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/07/functional-programming-in-scala/">Functional Programming in Scala</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-07-20T13:07:12-05:00">Thu Jul 20, 2017</time> by author in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/scala" rel="tag">scala</a>, <a href="/tags/links" rel="tag">links</a>
+
+</p>
+  </header>
+  <p>I&rsquo;ve just completed the first course in the coursera scala specialization series of courses, <a href="https://www.coursera.org/learn/progfun1">Functional Programming Principles in Scala</a>.</p>
+
+<p>I&rsquo;m not going to lie, it&rsquo;s a tough course that challenged my hack-it-together python background.  My python workflow goes something like this:</p>
+
+<p>Using sublimetext, write a function that takes some object, usually a list or dict, some strings or ints, etc., and return a dict or list, etc.  Copy that function and paste it in ipython. Create some sample data, run the function on the sample data and see if it returns what I expected.  Rinse and repeat.  Wrap it all up in a main function that uses all the functions I&rsquo;ve written to do something useful.  It works.  It&rsquo;s not TDD or BDD, I usually don&rsquo;t write test cases even though I know I should and I want to change that.  That&rsquo;s why I took this course:  to expose myself to ideas about better ways to program (functionally) and get some familiarity with a serious IDE and testing tools (IntelliJ).</p>
+
+<p>If your goals are like mine in this regard, I recommend this course.</p>
+
+<p>So, what did I learn?
+I like scala syntax.  I&rsquo;m not very good at it, but I see that the language is enormously powerful and since some of my coworkers use it and are awesome enough to help me along,  I&rsquo;m working on porting some of the stuff I&rsquo;ve done in python over to scala, taking advantage of spark (yeah, I know python speaks spark) and some <a href="https://streams.apache.org/">Apache Streams</a> goodness.</p>
+
+<p>Here are some links from my bookmarks tab:</p>
+
+<p><a href="https://www.coursera.org/learn/progfun1#syllabus">https://www.coursera.org/learn/progfun1#syllabus</a><br />
+<a href="http://docs.scala-lang.org/cheatsheets/">http://docs.scala-lang.org/cheatsheets/</a><br />
+<a href="https://stackoverflow.com/questions/17355768/is-there-a-scala-equivalent-to-pythons-list-comprehension">https://stackoverflow.com/questions/17355768/is-there-a-scala-equivalent-to-pythons-list-comprehension</a><br />
+<a href="https://predictionio.incubator.apache.org/">https://predictionio.incubator.apache.org/</a><br />
+<a href="http://www.lihaoyi.com/post/ScalaScriptingandthe15MinuteBlogEngine.html">http://www.lihaoyi.com/post/ScalaScriptingandthe15MinuteBlogEngine.html</a></p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmims.io%2f2017%2f07%2ffunctional-programming-in-scala%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fmims.io%2f2017%2f07%2ffunctional-programming-in-scala%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fmims.io%2f2017%2f07%2ffunctional-programming-in-scala%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fmims.io%2f2017%2f07%2ffunctional-programming-in-scala%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Some of what I think about DevOps, Programming, Food, DIY or whatever I want.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/07/functional-programming-in-scala/">Functional Programming in Scala</a></li>
+
+<li><a href="/2017/01/calling-an-api-with-go/">Calling an API with go</a></li>
+
+<li><a href="/2016/11/bitcoin/">bitcoin!</a></li>
+
+<li><a href="/2016/11/encrypting-text-with-gpg/">encrypting text with gpg</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Charles Mims 2017
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

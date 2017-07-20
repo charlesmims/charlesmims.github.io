@@ -1,67 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="generator" content="Hugo 0.18-DEV" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-<link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="charles@mims.io">
-<title>charles@mims.io</title>
-</head>
-<body>
 
-<div class="container">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<header role="banner">
-		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="charles@mims.io"></a>
-		</div>
-		<h1 class="site-title">charles@mims.io</h1>
-	</header>
-
-
-	<main role="main">
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/post/encrypting_text_with_gpg/">encrypting text with gpg</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2017-02-06">February 06, 2017</time></span>
-		</article>
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/post/calling_go_api/">Calling an API with go</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2017-01-19">January 19, 2017</time></span>
-		</article>
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/post/use_bitcoin/">use bitcoin!</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-11-23">November 23, 2016</time></span>
-		</article>
-
-	</main>
-
-
-	<footer role="contentinfo">
-		<div class="hr"></div>
-		<div class="footer-link">
-			<a href="mailto:charles@mims.io" target="_blank">Email</a>
-			<a href="https://twitter.com/charlesmims" target="_blank">Twitter</a>
-			
-			<a href="https://github.com/charlesmims/" target="_blank">GitHub</a>
-		</div>
-		<div class="copyright">Copyright &copy; Charles Mims 2016</div>
-	</footer>
-
-</div>
+<meta property="og:title" content="Charles&#39; Blog" />
+<meta property="og:description" content="Software, DevOps, Food Hacking, DIY, whatever." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://mims.io/" />
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<meta property="og:updated_time" content="2017-07-20T13:07:12-05:00"/>
 
-</body>
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.25.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "Charles&#39; Blog",
+  "url" : "http://mims.io/",
+  "author": {
+    "@type": "Person",
+    "name": "Charles Mims"
+  },
+  "dateModified": "2017-07-20T13:07:12-05:00",
+  "keywords": "links,ramblings,scala,speculation,",
+  "description": "Software, DevOps, Food Hacking, DIY, whatever."
+}
+</script>
+
+
+    <link rel="canonical" href="http://mims.io/">
+
+    <title>Charles&#39; Blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://mims.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="http://mims.io/index.xml" rel="alternate" type="application/rss+xml" title="Charles&#39; Blog" />
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-87949450-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link active" href="http://mims.io/">Home</a>
+          
+          
+          <a class="nav-link" href="http://mims.io/about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://mims.io/" rel="home">Charles' Blog</a></h1>
+        <p class="lead blog-description">Software, DevOps, Food Hacking, DIY, whatever.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/07/functional-programming-in-scala/">Functional Programming in Scala</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-07-20T13:07:12-05:00">Thu Jul 20, 2017</time> by author in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/scala" rel="tag">scala</a>, <a href="/tags/links" rel="tag">links</a>
+
+</p>
+  </header>
+  I&rsquo;ve just completed the first course in the coursera scala specialization series of courses, Functional Programming Principles in Scala.
+I&rsquo;m not going to lie, it&rsquo;s a tough course that challenged my hack-it-together python background. My python workflow goes something like this:
+Using sublimetext, write a function that takes some object, usually a list or dict, some strings or ints, etc., and return a dict or list, etc. Copy that function and paste it in ipython.
+  <a href='http://mims.io/2017/07/functional-programming-in-scala/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/01/calling-an-api-with-go/">Calling an API with go</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-01-19T10:25:27-06:00">Thu Jan 19, 2017</time> by Charles Mims</p>
+  </header>
+  I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
+I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.
+  <a href='http://mims.io/2017/01/calling-an-api-with-go/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2016/11/bitcoin/">bitcoin!</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-11-23T12:42:28-06:00">Wed Nov 23, 2016</time> by Charles Mims in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ramblings" rel="tag">ramblings</a>, <a href="/tags/speculation" rel="tag">speculation</a>
+
+</p>
+  </header>
+  You&rsquo;ve probably heard of a thing called bitcoin. &ldquo;It uses blockchain. It&rsquo;s awesome!&rdquo; Right? But what is it? Why should you use it? How can you get started?
+Check out bitcoin.org/en and you&rsquo;ll see a concise explanation: &ldquo;Bitcoin uses peer-to-peer technology to operate with no central authority or banks; managing transactions and the issuing of bitcoins is carried out collectively by the network. Bitcoin is open-source; its design is public, nobody owns or controls Bitcoin and everyone can take part.
+  <a href='http://mims.io/2016/11/bitcoin/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2016/11/encrypting-text-with-gpg/">encrypting text with gpg</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-11-04T16:29:05-05:00">Fri Nov 04, 2016</time> by Charles Mims</p>
+  </header>
+  This post is a quick-start guide to using gpg to encrypt and decrypt text for messages via email, slack, or just about any medium. My gpg key is F930E099 at the end of this post. Read on for more details about how to use it!
+If you&rsquo;ve been paying attention to this year&rsquo;s Presidential campaign, you&rsquo;re probably aware of the impact that leaked emails can have on one&rsquo;s public image. The thing that I&rsquo;m surprised I haven&rsquo;t heard anyone talking about is not whether it was a private email server or a government-secured server, but that any emails, not to mention classified material, are sent via unencrypted email.
+  <a href='http://mims.io/2016/11/encrypting-text-with-gpg/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Some of what I think about DevOps, Programming, Food, DIY or whatever I want.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/07/functional-programming-in-scala/">Functional Programming in Scala</a></li>
+
+<li><a href="/2017/01/calling-an-api-with-go/">Calling an API with go</a></li>
+
+<li><a href="/2016/11/bitcoin/">bitcoin!</a></li>
+
+<li><a href="/2016/11/encrypting-text-with-gpg/">encrypting text with gpg</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Charles Mims 2017
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
 </html>
-

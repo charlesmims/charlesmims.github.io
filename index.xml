@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Thu, 20 Jul 2017 13:07:12 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 20 Jun 2017 14:09:42 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Functional Programming in Scala</title>
-      <link>http://mims.io/2017/07/functional-programming-in-scala/</link>
-      <pubDate>Thu, 20 Jul 2017 13:07:12 -0500</pubDate>
-      
-      <guid>http://mims.io/2017/07/functional-programming-in-scala/</guid>
-      <description>I&amp;rsquo;ve just completed the first course in the coursera scala specialization series of courses, Functional Programming Principles in Scala.
-I&amp;rsquo;m not going to lie, it&amp;rsquo;s a tough course that challenged my hack-it-together python background. My python workflow goes something like this:
-Using sublimetext, write a function that takes some object, usually a list or dict, some strings or ints, etc., and return a dict or list, etc. Copy that function and paste it in ipython.</description>
-    </item>
     
     <item>
       <title>About</title>
@@ -29,7 +18,7 @@ Using sublimetext, write a function that takes some object, usually a list or di
       <pubDate>Tue, 20 Jun 2017 14:09:42 -0500</pubDate>
       
       <guid>http://mims.io/about/</guid>
-      <description>I&amp;rsquo;m a 37yo DevOps/dev/sysadmin/geek living in Bastrop, Texas which is about 45 minutes east of Downtown Austin where I&amp;rsquo;m the DevOps guy at a small startup that does social media analytics to help companies make sense of mountains of data. I have a lovely intellectual and feisty wife, an opinionated 2yo girl and a boy due any day now. I love exploring new technology, cooking, and DIY projects.
+      <description>I&amp;rsquo;m a 37yo DevOps/dev/sysadmin/dad/geek living in Bastrop, Texas which is about 45 minutes east of Downtown Austin where I&amp;rsquo;m the DevOps guy at a small startup that does social media analytics to help companies make sense of mountains of data. I have a lovely intellectual and feisty wife, an opinionated 2yo girl and a boy due any day now. I love exploring new technology, cooking, and DIY projects.
 Some tech I either use daily or am interested in: python, scala, golang, docker, kubernetes, mesos, elasticsearch, cassandra, aerospike, postgres, macos, ios, machine learning, opencv, raspberry pi, networking, debian/ubuntu, coreos</description>
     </item>
     

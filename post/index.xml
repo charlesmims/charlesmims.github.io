@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Thu, 20 Jul 2017 13:07:12 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jan 2017 10:25:27 -0600</lastBuildDate>
     
 	<atom:link href="http://mims.io/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Functional Programming in Scala</title>
-      <link>http://mims.io/2017/07/functional-programming-in-scala/</link>
-      <pubDate>Thu, 20 Jul 2017 13:07:12 -0500</pubDate>
-      
-      <guid>http://mims.io/2017/07/functional-programming-in-scala/</guid>
-      <description>I&amp;rsquo;ve just completed the first course in the coursera scala specialization series of courses, Functional Programming Principles in Scala.
-I&amp;rsquo;m not going to lie, it&amp;rsquo;s a tough course that challenged my hack-it-together python background. My python workflow goes something like this:
-Using sublimetext, write a function that takes some object, usually a list or dict, some strings or ints, etc., and return a dict or list, etc. Copy that function and paste it in ipython.</description>
-    </item>
     
     <item>
       <title>Calling an API with go</title>

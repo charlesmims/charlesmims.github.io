@@ -40,7 +40,7 @@ Supposedly, this is happening because the method that cleans them up and the met
   "@type": "BlogPosting",
   "headline": "Blacklisting mbeans from Cassandra in jxm_exporter",
   "url": "http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/",
-  "wordCount": "291",
+  "wordCount": "294",
   "datePublished": "2017-09-13T11:50:09-05:00",
   "dateModified": "2017-09-13T11:50:09-05:00",
   "author": {
@@ -130,6 +130,8 @@ We can see the metrics we&rsquo;re currently collecting by running <code>curl lo
 ...
 JVM_OPTS=&quot;$JVM_OPTS -javaagent:/etc/cassandra/jmx_prometheus_javaagent-0.5.jar=7070:/etc/cassandra/cassandra-jmx.yml&quot;
 </code></pre>
+
+<h2 id="blacklisting-the-mbean">Blacklisting the mbean</h2>
 
 <p>The first thing we need to know in order to blacklist the right bean is what the tombstone beans are called.  This can be done with jmxterm.</p>
 

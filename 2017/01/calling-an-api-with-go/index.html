@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Calling an API with go" />
-<meta property="og:description" content="I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
-I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout." />
+<meta property="og:description" content="I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://mims.io/2017/01/calling-an-api-with-go/" />
 
@@ -26,18 +26,11 @@ I wrote this little program to fetch the latest bitcoin price from the coinbase 
 
 
 
-
-
-  <meta name="twitter:card" content="summary"/>
-
-
-
-<meta name="twitter:text:title" content="Calling an API with go"/>
-<meta name="twitter:title" content="Calling an API with go"/>
-<meta name="twitter:description" content="I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
-I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout."/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Calling an API with go"/>
+<meta name="twitter:description" content="I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options."/>
 <meta name="twitter:site" content="@charlesmims"/>
-<meta name="generator" content="Hugo 0.25.1" />
+<meta name="generator" content="Hugo 0.26" />
 
 
     
@@ -47,7 +40,7 @@ I wrote this little program to fetch the latest bitcoin price from the coinbase 
   "@type": "BlogPosting",
   "headline": "Calling an API with go",
   "url": "http://mims.io/2017/01/calling-an-api-with-go/",
-  "wordCount": "204",
+  "wordCount": "330",
   "datePublished": "2017-01-19T10:25:27-06:00",
   "dateModified": "2017-01-19T10:25:27-06:00",
   "author": {
@@ -117,9 +110,11 @@ ga('send', 'pageview');
     <h2 class="blog-post-title"><a href="http://mims.io/2017/01/calling-an-api-with-go/">Calling an API with go</a></h2>
     <p class="blog-post-meta"><time datetime="2017-01-19T10:25:27-06:00">Thu Jan 19, 2017</time> by Charles Mims</p>
   </header>
-  <p>I&rsquo;ve been trying to learn go (golang) over the past couple months.  The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go.  Coming from python, I find the language beautiful, but not quite natural.  I&rsquo;m getting there.</p>
+  <p>I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible.  Tools.  I like tools.<br />
+Go is an increasingly popular language with a large dedicated following.  Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes.  There are even tensorflow bindings and great distributed computing options.  Horizontal scaling?  Got ya covered.  It&rsquo;s concise, easy to learn, compiles quickly and runs really stinkin&rsquo; fast.
+The documentation at golang.org is fantastic and only takes about a half a day to get through, and there&rsquo;s a ton of great open source projects, tutorials, and blog posts to learn from.</p>
 
-<p>I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.</p>
+<p>I wrote this little script to fetch the latest bitcoin price from the coinbase API and print it to stdout.</p>
 
 <pre><code>package main
 
@@ -130,6 +125,12 @@ import (
   &quot;log&quot;
   &quot;net/http&quot;
 )
+
+// structure for response from coinbase api
+// $ curl https://api.coinbase.com/v2/prices/spot?currency=USD
+// {&quot;data&quot;:{&quot;amount&quot;:&quot;2735.59&quot;,&quot;currency&quot;:&quot;USD&quot;},&quot;warnings&quot;:[{&quot;id&quot;:&quot;missing_version&quot;,&quot;message&quot;:&quot;Please supply API version (
+// YYYY-MM-DD) as CB-VERSION header&quot;,&quot;url&quot;:&quot;https://developers.coinbase.com/api#versioning&quot;}]}
+
 
 type (
   Notice struct {
@@ -172,9 +173,27 @@ func main() {
 
 <p>To build this, I ran <code>go install</code> in the directory where I have this saved as main.go (~/go/src/github.com/charlesmims/btc).  Now I can run <code>btc</code> and get the current bitcoin price.</p>
 
-<pre><code>cmims@MBP:~$ btc
-964.15
+<pre><code>cmims@MBP:~/go/src/github.com/charlesmims/btc$ time go install
+
+real  0m0.825s
+user  0m0.111s
+sys 0m0.351s
+cmims@MBP:~/go/src/github.com/charlesmims/btc$ time btc
+2736.10
+
+real  0m0.200s
+user  0m0.050s
+sys 0m0.017s
 </code></pre>
+
+<p>Here are some go projects you should check out:</p>
+
+<p><a href="https://prometheus.io/">https://prometheus.io/</a><br />
+<a href="https://kubernetes.io/">https://kubernetes.io/</a><br />
+<a href="http://pachyderm.io/">http://pachyderm.io/</a><br />
+<a href="http://nats.io/">http://nats.io/</a><br />
+<a href="https://github.com/chewxy/gorgonia">https://github.com/chewxy/gorgonia</a><br />
+<a href="https://github.com/galeone/tfgo">https://github.com/galeone/tfgo</a></p>
 
 
   
@@ -219,6 +238,8 @@ func main() {
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
 
+
+<li><a href="/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">Blacklisting mbeans from Cassandra in jxm_exporter</a></li>
 
 <li><a href="/2017/01/calling-an-api-with-go/">Calling an API with go</a></li>
 

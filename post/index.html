@@ -12,7 +12,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-01-19T10:25:27-06:00"/>
+<meta property="og:updated_time" content="2017-09-13T11:50:09-05:00"/>
 
 
 
@@ -23,7 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.25.1" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content="Software, DevOps, Food Hacking, DIY, whatever."/>
+<meta name="twitter:site" content="@charlesmims"/>
+<meta name="generator" content="Hugo 0.26" />
 
 
     
@@ -37,7 +40,7 @@
     "@type": "Person",
     "name": "Charles Mims"
   },
-  "dateModified": "2017-01-19T10:25:27-06:00",
+  "dateModified": "2017-09-13T11:50:09-05:00",
   "keywords": "ramblings,speculation,",
   "description": "Software, DevOps, Food Hacking, DIY, whatever."
 }
@@ -107,11 +110,27 @@ ga('send', 'pageview');
 
 <article class="blog-post">
   <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">Blacklisting mbeans from Cassandra in jxm_exporter</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-13T11:50:09-05:00">Wed Sep 13, 2017</time> by Charles Mims</p>
+  </header>
+  #Blacklisting mbeans in jmxterm.
+Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
+Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.
+  <a href='http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
     <h2 class="blog-post-title"><a href="http://mims.io/2017/01/calling-an-api-with-go/">Calling an API with go</a></h2>
     <p class="blog-post-meta"><time datetime="2017-01-19T10:25:27-06:00">Thu Jan 19, 2017</time> by Charles Mims</p>
   </header>
-  I&rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&rsquo;m getting there.
-I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.
+  I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options.
   <a href='http://mims.io/2017/01/calling-an-api-with-go/'>Read more →</a>
 </article> 
 
@@ -171,6 +190,8 @@ If you&rsquo;ve been paying attention to this year&rsquo;s Presidential campaign
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
 
+
+<li><a href="/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">Blacklisting mbeans from Cassandra in jxm_exporter</a></li>
 
 <li><a href="/2017/01/calling-an-api-with-go/">Calling an API with go</a></li>
 

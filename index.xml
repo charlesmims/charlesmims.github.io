@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Tue, 20 Jun 2017 14:09:42 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 13 Sep 2017 11:50:09 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blacklisting mbeans from Cassandra in jxm_exporter</title>
+      <link>http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/</link>
+      <pubDate>Wed, 13 Sep 2017 11:50:09 -0500</pubDate>
+      
+      <guid>http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/</guid>
+      <description>#Blacklisting mbeans in jmxterm.
+Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
+Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&amp;rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&amp;rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -28,8 +39,8 @@ Some tech I either use daily or am interested in: python, scala, golang, docker,
       <pubDate>Thu, 19 Jan 2017 10:25:27 -0600</pubDate>
       
       <guid>http://mims.io/2017/01/calling-an-api-with-go/</guid>
-      <description>I&amp;rsquo;ve been trying to learn go (golang) over the past couple months. The documentation at golang.org is fantastic and only takes about a half a day to get through, but I&amp;rsquo;m still working on getting really comfortable thinking in go. Coming from python, I find the language beautiful, but not quite natural. I&amp;rsquo;m getting there.
-I wrote this little program to fetch the latest bitcoin price from the coinbase API and print it to stdout.</description>
+      <description>I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options.</description>
     </item>
     
     <item>

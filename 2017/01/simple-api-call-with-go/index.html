@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="simple API call with go" />
+<meta property="og:description" content="I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mims.io/2017/01/simple-api-call-with-go/" />
+
+
+
+<meta property="article:published_time" content="2017-01-19T10:25:27-06:00"/>
+<meta property="article:modified_time" content="2017-01-19T10:25:27-06:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="simple API call with go"/>
+<meta name="twitter:description" content="I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
+Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options."/>
+<meta name="twitter:site" content="@charlesmims"/>
+<meta name="generator" content="Hugo 0.26" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "simple API call with go",
+  "url": "http://mims.io/2017/01/simple-api-call-with-go/",
+  "wordCount": "330",
+  "datePublished": "2017-01-19T10:25:27-06:00",
+  "dateModified": "2017-01-19T10:25:27-06:00",
+  "author": {
+    "@type": "Person",
+    "name": "Charles Mims"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://mims.io/2017/01/simple-api-call-with-go/">
+
+    <title>simple API call with go | Charles&#39; Blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://mims.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-87949450-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://mims.io/">Home</a>
+          
+          
+          <a class="nav-link" href="http://mims.io/about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://mims.io/" rel="home">Charles' Blog</a></h1>
+        <p class="lead blog-description">Software, DevOps, Food Hacking, DIY, whatever.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2017/01/simple-api-call-with-go/">simple API call with go</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-01-19T10:25:27-06:00">Thu Jan 19, 2017</time> by Charles Mims</p>
+  </header>
+  <p>I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible.  Tools.  I like tools.<br />
+Go is an increasingly popular language with a large dedicated following.  Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes.  There are even tensorflow bindings and great distributed computing options.  Horizontal scaling?  Got ya covered.  It&rsquo;s concise, easy to learn, compiles quickly and runs really stinkin&rsquo; fast.
+The documentation at golang.org is fantastic and only takes about a half a day to get through, and there&rsquo;s a ton of great open source projects, tutorials, and blog posts to learn from.</p>
+
+<p>I wrote this little script to fetch the latest bitcoin price from the coinbase API and print it to stdout.</p>
+
+<pre><code>package main
+
+import (
+  &quot;encoding/json&quot;
+  &quot;fmt&quot;
+  &quot;io/ioutil&quot;
+  &quot;log&quot;
+  &quot;net/http&quot;
+)
+
+// structure for response from coinbase api
+// $ curl https://api.coinbase.com/v2/prices/spot?currency=USD
+// {&quot;data&quot;:{&quot;amount&quot;:&quot;2735.59&quot;,&quot;currency&quot;:&quot;USD&quot;},&quot;warnings&quot;:[{&quot;id&quot;:&quot;missing_version&quot;,&quot;message&quot;:&quot;Please supply API version (
+// YYYY-MM-DD) as CB-VERSION header&quot;,&quot;url&quot;:&quot;https://developers.coinbase.com/api#versioning&quot;}]}
+
+
+type (
+  Notice struct {
+    ID      string `json:&quot;id&quot;`
+    Message string `json:&quot;message&quot;`
+    URL     string `json:&quot;url,omitempty&quot;`
+  }
+
+  Amount struct {
+    Data struct {
+      Amount   string `json:&quot;amount&quot;`
+      Currency string `json:&quot;currency&quot;`
+    } `json:&quot;data&quot;`
+    Warnings []*Notice `json:&quot;warnings,omitempty&quot;`
+  }
+)
+
+func main() {
+  client := &amp;http.Client{}
+  req, err := http.NewRequest(&quot;GET&quot;, &quot;https://api.coinbase.com/v2/prices/spot?currency=USD&quot;, nil)
+  if err != nil {
+    log.Fatal(err)
+  }
+  req.Header.Set(&quot;CB-VERSION&quot;,&quot;2017-06-21&quot;)
+  resp, err := client.Do(req)
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer resp.Body.Close()
+  data, err := ioutil.ReadAll(resp.Body)
+  resp.Body.Close()
+  if err != nil {
+    log.Fatal(err)
+  }
+  var dec Amount
+  json.Unmarshal(data, &amp;dec)
+  fmt.Printf(&quot;%s\n&quot;, dec.Data.Amount)
+}
+</code></pre>
+
+<p>To build this, I ran <code>go install</code> in the directory where I have this saved as main.go (~/go/src/github.com/charlesmims/btc).  Now I can run <code>btc</code> and get the current bitcoin price.</p>
+
+<pre><code>cmims@MBP:~/go/src/github.com/charlesmims/btc$ time go install
+
+real  0m0.825s
+user  0m0.111s
+sys 0m0.351s
+cmims@MBP:~/go/src/github.com/charlesmims/btc$ time btc
+2736.10
+
+real  0m0.200s
+user  0m0.050s
+sys 0m0.017s
+</code></pre>
+
+<p>Here are some go projects you should check out:</p>
+
+<p><a href="https://prometheus.io/">https://prometheus.io/</a><br />
+<a href="https://kubernetes.io/">https://kubernetes.io/</a><br />
+<a href="http://pachyderm.io/">http://pachyderm.io/</a><br />
+<a href="http://nats.io/">http://nats.io/</a><br />
+<a href="https://github.com/chewxy/gorgonia">https://github.com/chewxy/gorgonia</a><br />
+<a href="https://github.com/galeone/tfgo">https://github.com/galeone/tfgo</a></p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmims.io%2f2017%2f01%2fsimple-api-call-with-go%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fmims.io%2f2017%2f01%2fsimple-api-call-with-go%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fmims.io%2f2017%2f01%2fsimple-api-call-with-go%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fmims.io%2f2017%2f01%2fsimple-api-call-with-go%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Some of what I think about DevOps, Programming, Food, DIY or whatever I want.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">blacklisting mbeans from Cassandra in jxm_exporter</a></li>
+
+<li><a href="/2017/01/simple-api-call-with-go/">simple API call with go</a></li>
+
+<li><a href="/2016/11/bitcoin/">bitcoin!</a></li>
+
+<li><a href="/2016/11/encrypting-text-with-gpg/">encrypting text with gpg</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Charles Mims 2017
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

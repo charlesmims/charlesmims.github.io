@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Blacklisting mbeans from Cassandra in jxm_exporter</title>
+      <title>blacklisting mbeans from Cassandra in jxm_exporter</title>
       <link>http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/</link>
       <pubDate>Wed, 13 Sep 2017 11:50:09 -0500</pubDate>
       
@@ -23,11 +23,11 @@ Supposedly, this is happening because the method that cleans them up and the met
     </item>
     
     <item>
-      <title>Calling an API with go</title>
-      <link>http://mims.io/2017/01/calling-an-api-with-go/</link>
+      <title>simple API call with go</title>
+      <link>http://mims.io/2017/01/simple-api-call-with-go/</link>
       <pubDate>Thu, 19 Jan 2017 10:25:27 -0600</pubDate>
       
-      <guid>http://mims.io/2017/01/calling-an-api-with-go/</guid>
+      <guid>http://mims.io/2017/01/simple-api-call-with-go/</guid>
       <description>I like to familiarize myself with emerging and popular technologies so that when I come to a new problem I have more options in my bag of tricks to solve it as well as possible. Tools. I like tools.
 Go is an increasingly popular language with a large dedicated following. Most of the new and amaze-balls infrastructure tech is written in go, including docker, etcd, prometheus, kubernetes. There are even tensorflow bindings and great distributed computing options.</description>
     </item>

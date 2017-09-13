@@ -18,8 +18,7 @@
       <pubDate>Wed, 13 Sep 2017 11:50:09 -0500</pubDate>
       
       <guid>http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/</guid>
-      <description>#Blacklisting mbeans in jmxterm.
-Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
+      <description>Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
 Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&amp;rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&amp;rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.</description>
     </item>
     

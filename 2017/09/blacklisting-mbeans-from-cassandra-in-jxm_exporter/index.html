@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Blacklisting mbeans from Cassandra in jxm_exporter" />
-<meta property="og:description" content="#Blacklisting mbeans in jmxterm.
-Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
+<meta property="og:description" content="Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
 Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/" />
@@ -28,8 +27,7 @@ Supposedly, this is happening because the method that cleans them up and the met
 
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Blacklisting mbeans from Cassandra in jxm_exporter"/>
-<meta name="twitter:description" content="#Blacklisting mbeans in jmxterm.
-Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
+<meta name="twitter:description" content="Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
 Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness."/>
 <meta name="twitter:site" content="@charlesmims"/>
 <meta name="generator" content="Hugo 0.26" />
@@ -42,7 +40,7 @@ Supposedly, this is happening because the method that cleans them up and the met
   "@type": "BlogPosting",
   "headline": "Blacklisting mbeans from Cassandra in jxm_exporter",
   "url": "http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/",
-  "wordCount": "295",
+  "wordCount": "291",
   "datePublished": "2017-09-13T11:50:09-05:00",
   "dateModified": "2017-09-13T11:50:09-05:00",
   "author": {
@@ -113,8 +111,6 @@ ga('send', 'pageview');
     <p class="blog-post-meta"><time datetime="2017-09-13T11:50:09-05:00">Wed Sep 13, 2017</time> by Charles Mims</p>
   </header>
   
-
-<p>#Blacklisting mbeans in jmxterm.</p>
 
 <h2 id="why">Why:</h2>
 

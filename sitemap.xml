@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mims.io/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/</loc>
+    <lastmod>2017-09-15T11:41:09-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/</loc>
     <lastmod>2017-09-13T11:50:09-05:00</lastmod>
   </url>
@@ -34,13 +39,13 @@
   
   <url>
     <loc>http://mims.io/</loc>
-    <lastmod>2017-09-13T11:50:09-05:00</lastmod>
+    <lastmod>2017-09-15T11:41:09-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mims.io/post/</loc>
-    <lastmod>2017-09-13T11:50:09-05:00</lastmod>
+    <lastmod>2017-09-15T11:41:09-05:00</lastmod>
     <priority>0</priority>
   </url>
   

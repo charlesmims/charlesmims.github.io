@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Wed, 13 Sep 2017 11:50:09 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 15 Sep 2017 11:41:09 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Get docker-maven-plugin to work with docker native on macos</title>
+      <link>http://mims.io/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/</link>
+      <pubDate>Fri, 15 Sep 2017 11:41:09 -0500</pubDate>
+      
+      <guid>http://mims.io/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/</guid>
+      <description>Get docker-maven-plugin to work with docker native on macos.
+$ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T14:39:06-05:00) Maven home: /Users/cmims/apache-maven-3.5.0 Java version: 1.8.0_144, vendor: Oracle Corporation Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre Default locale: en_US, platform encoding: UTF-8 OS name: &amp;quot;mac os x&amp;quot;, version: &amp;quot;10.12.6&amp;quot;, arch: &amp;quot;x86_64&amp;quot;, family: &amp;quot;mac&amp;quot; $ docker version Client: Version: 17.06.2-ce API version: 1.30 Go version: go1.8.3 Git commit: cec0b72 Built: Tue Sep 5 20:12:06 2017 OS/Arch: darwin/amd64 Server: Version: 17.</description>
+    </item>
     
     <item>
       <title>blacklisting mbeans from Cassandra in jxm_exporter</title>

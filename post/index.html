@@ -129,7 +129,7 @@ $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7
     <p class="blog-post-meta"><time datetime="2017-09-13T11:50:09-05:00">Wed Sep 13, 2017</time> by Charles Mims</p>
   </header>
   Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
-Supposedly, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.
+As I understand it, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet &ndash; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.
   <a href='http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/'>Read more →</a>
 </article> 
 

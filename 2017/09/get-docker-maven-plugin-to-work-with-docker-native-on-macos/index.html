@@ -14,6 +14,7 @@ $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7
 
 
 <meta property="article:published_time" content="2017-09-15T11:41:09-05:00"/>
+
 <meta property="article:modified_time" content="2017-09-15T11:41:09-05:00"/>
 
 
@@ -30,7 +31,7 @@ $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7
 <meta name="twitter:description" content="Get docker-maven-plugin to work with docker native on macos.
 $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T14:39:06-05:00) Maven home: /Users/cmims/apache-maven-3.5.0 Java version: 1.8.0_144, vendor: Oracle Corporation Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre Default locale: en_US, platform encoding: UTF-8 OS name: &quot;mac os x&quot;, version: &quot;10.12.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot; $ docker version Client: Version: 17.06.2-ce API version: 1.30 Go version: go1.8.3 Git commit: cec0b72 Built: Tue Sep 5 20:12:06 2017 OS/Arch: darwin/amd64 Server: Version: 17."/>
 <meta name="twitter:site" content="@charlesmims"/>
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.34" />
 
 
     
@@ -40,7 +41,7 @@ $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7
   "@type": "BlogPosting",
   "headline": "Get docker-maven-plugin to work with docker native on macos",
   "url": "http://mims.io/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/",
-  "wordCount": "219",
+  "wordCount": "256",
   "datePublished": "2017-09-15T11:41:09-05:00",
   "dateModified": "2017-09-15T11:41:09-05:00",
   "author": {
@@ -110,7 +111,9 @@ ga('send', 'pageview');
     <h2 class="blog-post-title"><a href="http://mims.io/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/">Get docker-maven-plugin to work with docker native on macos</a></h2>
     <p class="blog-post-meta"><time datetime="2017-09-15T11:41:09-05:00">Fri Sep 15, 2017</time> by Charles Mims</p>
   </header>
-  <p>Get docker-maven-plugin to work with docker native on macos.</p>
+  
+
+<p>Get docker-maven-plugin to work with docker native on macos.</p>
 
 <pre><code>$ mvn version
 ^C[11:09:43] cmims@MBP:~$ mvn -version
@@ -160,6 +163,11 @@ Server:
 
 <p>To get the auth string, either run <code>docker login</code> on a linux machine and copy it from <code>~/.docker/config.json</code> there, or base64 encode your docker username:password with something like
 <code>python3 -c &quot;import base64; print(base64.b64encode(b'username:password').decode('utf-8'))&quot;</code></p>
+
+<h2 id="update">UPDATE:</h2>
+
+<p>I found a setting in the docker client for macos that uses the old-style instead of the keychain.<br />
+Click on the docker icon the menu bar, select Preferences.  Uncheck &ldquo;Secure store docker logins in macOS keychain&rdquo;.</p>
 
 
   

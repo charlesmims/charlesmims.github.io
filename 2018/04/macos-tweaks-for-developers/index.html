@@ -39,7 +39,7 @@
   "@type": "BlogPosting",
   "headline": "MacOS Tweaks for Developers",
   "url": "http://mims.io/2018/04/macos-tweaks-for-developers/",
-  "wordCount": "419",
+  "wordCount": "478",
   "datePublished": "2018-04-10T11:38:17-05:00",
   "dateModified": "2018-04-10T11:38:17-05:00",
   "author": {
@@ -202,6 +202,20 @@ d
 * enable edge night sky theme via Preferences &gt; Theme
 * select edge night sky color scheme via Preferences &gt; Color Scheme
 Install your syntax highlighters with package control.</p>
+
+<h2 id="make-external-keyboard-home-and-end-keys-work-in-chrome-and-other-apps">Make external keyboard Home and End keys work in Chrome and other apps</h2>
+
+<p>Paste the following in a new dir and file at<code>~/Library/KeyBindings/DefaultKeyBinding.dict</code>:</p>
+
+<pre><code>{
+    &quot;\UF729&quot;  = moveToBeginningOfLine:; // home
+    &quot;\UF72B&quot;  = moveToEndOfLine:; // end
+    &quot;$\UF729&quot; = moveToBeginningOfLineAndModifySelection:; // shift-home
+    &quot;$\UF72B&quot; = moveToEndOfLineAndModifySelection:; // shift-end
+}
+</code></pre>
+
+<p>This will make the Home and End keys work as expected in Chrome, etc.</p>
 
 
   

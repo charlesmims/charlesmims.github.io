@@ -47,8 +47,9 @@ As I understand it, this is happening because the method that cleans them up and
       <pubDate>Tue, 20 Jun 2017 14:09:42 -0500</pubDate>
       
       <guid>http://mims.io/about/</guid>
-      <description>I&amp;rsquo;m a 37yo DevOps/dev/sysadmin/dad/geek living in Bastrop, Texas which is about 45 minutes east of Downtown Austin where I&amp;rsquo;m the DevOps guy at a small startup that does social media analytics to help companies make sense of mountains of data. I have a lovely intellectual and feisty wife, an opinionated 2yo girl and a boy due any day now. I love exploring new technology, cooking, and DIY projects.
-Some tech I either use daily or am interested in: python, scala, golang, docker, kubernetes, mesos, elasticsearch, cassandra, aerospike, postgres, macos, ios, machine learning, opencv, raspberry pi, networking, debian/ubuntu, coreos</description>
+      <description>I&amp;rsquo;m a 38yo DevOps/dev/sysadmin/dad/handydude living in Bastrop, Texas which is about 45 minutes east of Downtown Austin where I&amp;rsquo;m the DevOps guy at a small startup that does social media analytics to help companies make sense of mountains of data.
+I love exploring new technology, cooking, and DIY projects.
+Some tech I either use daily or am interested in: python, scala, golang, docker, kubernetes, mesos, dcos, elasticsearch, cassandra, postgres, macos, ios, machine learning, opencv, raspberry pi, networking, debian/ubuntu, coreos, 3d printing</description>
     </item>
     
     <item>

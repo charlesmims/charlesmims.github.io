@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Fri, 15 Sep 2017 11:41:09 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 10 Apr 2018 11:38:17 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MacOS Tweaks for Developers</title>
+      <link>http://mims.io/2018/04/macos-tweaks-for-developers/</link>
+      <pubDate>Tue, 10 Apr 2018 11:38:17 -0500</pubDate>
+      
+      <guid>http://mims.io/2018/04/macos-tweaks-for-developers/</guid>
+      <description>I stumbled across a bug yesterday that managed to screw up my filesystem around my homedir (hard links to parent directories, anyone?), so I took the opportunity to re-image my laptop and set it up anew. While getting all the little settings the way I like them, I figured I&amp;rsquo;d write them down here so others may benefit. If you&amp;rsquo;re using a mac for development, these are just a few applications and configuration settings that I like that you might like as well.</description>
+    </item>
     
     <item>
       <title>Get docker-maven-plugin to work with docker native on macos</title>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="MacOS Tweaks for Developers" />
+<meta property="og:description" content="I stumbled across a bug yesterday that managed to screw up my filesystem around my homedir (hard links to parent directories, anyone?), so I took the opportunity to re-image my laptop and set it up anew. While getting all the little settings the way I like them, I figured I&rsquo;d write them down here so others may benefit. If you&rsquo;re using a mac for development, these are just a few applications and configuration settings that I like that you might like as well." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mims.io/2018/04/macos-tweaks-for-developers/" />
+
+
+
+<meta property="article:published_time" content="2018-04-10T11:38:17-05:00"/>
+
+<meta property="article:modified_time" content="2018-04-10T11:38:17-05:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MacOS Tweaks for Developers"/>
+<meta name="twitter:description" content="I stumbled across a bug yesterday that managed to screw up my filesystem around my homedir (hard links to parent directories, anyone?), so I took the opportunity to re-image my laptop and set it up anew. While getting all the little settings the way I like them, I figured I&rsquo;d write them down here so others may benefit. If you&rsquo;re using a mac for development, these are just a few applications and configuration settings that I like that you might like as well."/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MacOS Tweaks for Developers",
+  "url": "http://mims.io/2018/04/macos-tweaks-for-developers/",
+  "wordCount": "419",
+  "datePublished": "2018-04-10T11:38:17-05:00",
+  "dateModified": "2018-04-10T11:38:17-05:00",
+  "author": {
+    "@type": "Person",
+    "name": "Charles Mims"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://mims.io/2018/04/macos-tweaks-for-developers/">
+
+    <title>MacOS Tweaks for Developers | Charles&#39; Blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://mims.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-87949450-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://mims.io/">Home</a>
+          
+          
+          <a class="nav-link" href="http://mims.io/about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://mims.io/" rel="home">Charles' Blog</a></h1>
+        <p class="lead blog-description">Software, DevOps, Food Hacking, DIY, whatever.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2018/04/macos-tweaks-for-developers/">MacOS Tweaks for Developers</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-04-10T11:38:17-05:00">Tue Apr 10, 2018</time> by Charles Mims</p>
+  </header>
+  
+
+<p>I stumbled across a bug yesterday that managed to screw up my filesystem around my homedir (hard links to parent directories, anyone?), so I took the opportunity to re-image my laptop and set it up anew.  While getting all the little settings the way I like them, I figured I&rsquo;d write them down here so others may benefit.
+If you&rsquo;re using a mac for development, these are just a few applications and configuration settings that I like that you might like as well.  Most of these are collected from around the web with attribution via link.</p>
+
+<h2 id="bash">bash</h2>
+
+<h3 id="improved-bash-history">improved bash history</h3>
+
+<p><a href="https://sanctum.geek.nz/arabesque/better-bash-history/">https://sanctum.geek.nz/arabesque/better-bash-history/</a><br />
+Add the following to your ~/.bash_profile:</p>
+
+<pre><code>HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth
+HISTIGNORE='ls:bg:fg:history'
+HISTTIMEFORMAT='%F %T '
+PROMPT_COMMAND='history -a'
+</code></pre>
+
+<p>This will increase the number of lines saved, ignore lines that start with space or are duplicate lines as well as the commands listed in HISTIGNORE, and will print the output of <code>history</code> with timestamps, and will write commands into the history as they&rsquo;re issues so you&rsquo;ll be able to get them between terminals.</p>
+
+<h3 id="improved-prompt">improved prompt</h3>
+
+<p>I like these prompt and color settings, specified in ~/.bash_profile.  They&rsquo;re clean, unobtrusive, and provide useful information including the time the last command finished, current user, host, and path, and commands like <code>ls</code> show nice colors.</p>
+
+<pre><code>export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export PS1=&quot;[\t] \u@MBP:\w$ &quot;
+</code></pre>
+
+<h2 id="iterm2">iTerm2</h2>
+
+<h3 id="launch-windows-larger">launch windows larger</h3>
+
+<p>This fits macbook pro windows nicer, IMO.<br />
+Preferences &gt; Window<br />
+Columns: 150     Rows: 40</p>
+
+<h3 id="skip-words-forward-and-back-and-delete-previous-and-next-words">skip words forward and back, and delete previous and next words</h3>
+
+<p><a href="https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards">https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards</a><br />
+Preferences &gt; Profiles &gt; Keys<br />
+Click the plus or edit existing entries.</p>
+
+<p>move forward one word</p>
+
+<pre><code>option+right
+send escape
+f
+</code></pre>
+
+<p>move back one word</p>
+
+<pre><code>option+left
+send escape
+b
+</code></pre>
+
+<p>delete to beginning of word (credit)</p>
+
+<pre><code>option+delete
+send hex code
+0x1B 0x08
+</code></pre>
+
+<p>delete to end of word</p>
+
+<pre><code>fn+option+delete
+send escape
+d
+</code></pre>
+
+<h2 id="sublimetext">sublimetext</h2>
+
+<h3 id="home-and-end-keys-should-do-what-they-should">home and end keys should do what they should</h3>
+
+<p>Preferences &gt; Key Bindings - User</p>
+
+<pre><code>{ &quot;keys&quot;: [&quot;home&quot;], &quot;command&quot;: &quot;move_to&quot;, &quot;args&quot;: {&quot;to&quot;: &quot;bol&quot;} },
+{ &quot;keys&quot;: [&quot;end&quot;], &quot;command&quot;: &quot;move_to&quot;, &quot;args&quot;: {&quot;to&quot;: &quot;eol&quot;} },
+{ &quot;keys&quot;: [&quot;shift+end&quot;], &quot;command&quot;: &quot;move_to&quot;, &quot;args&quot;: {&quot;to&quot;: &quot;eol&quot;, &quot;extend&quot;: true} },
+{ &quot;keys&quot;: [&quot;shift+home&quot;], &quot;command&quot;: &quot;move_to&quot;, &quot;args&quot;: {&quot;to&quot;: &quot;bol&quot;, &quot;extend&quot;: true } }
+</code></pre>
+
+<h3 id="edge-night-sky-theme">&ldquo;edge night sky&rdquo; theme</h3>
+
+<p>Colorful, dark, and easy to read.
+* Install Package Control:  shift-command-p and start typing &ldquo;package control&rdquo;, then select option to install it.
+* Install Edge theme using package control: shift-command-p &ldquo;install package&rdquo;, then &ldquo;edge&rdquo;
+* enable edge night sky theme via Preferences &gt; Theme
+* select edge night sky color scheme via Preferences &gt; Color Scheme
+Install your syntax highlighters with package control.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmims.io%2f2018%2f04%2fmacos-tweaks-for-developers%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fmims.io%2f2018%2f04%2fmacos-tweaks-for-developers%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fmims.io%2f2018%2f04%2fmacos-tweaks-for-developers%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fmims.io%2f2018%2f04%2fmacos-tweaks-for-developers%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Some of what I think about DevOps, Programming, Food, DIY or whatever I want.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2018/04/macos-tweaks-for-developers/">MacOS Tweaks for Developers</a></li>
+
+<li><a href="/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/">Get docker-maven-plugin to work with docker native on macos</a></li>
+
+<li><a href="/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">blacklisting mbeans from Cassandra in jxm_exporter</a></li>
+
+<li><a href="/2017/01/simple-api-call-with-go/">simple API call with go</a></li>
+
+<li><a href="/2016/11/bitcoin/">bitcoin!</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Charles Mims 2017
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

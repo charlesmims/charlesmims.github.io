@@ -39,7 +39,7 @@
   "@type": "BlogPosting",
   "headline": "MacOS Tweaks for Developers",
   "url": "http://mims.io/2018/04/macos-tweaks-for-developers/",
-  "wordCount": "478",
+  "wordCount": "643",
   "datePublished": "2018-04-10T11:38:17-05:00",
   "dateModified": "2018-04-10T11:38:17-05:00",
   "author": {
@@ -113,6 +113,21 @@ ga('send', 'pageview');
 
 <p>I stumbled across a bug yesterday that managed to screw up my filesystem around my homedir (hard links to parent directories, anyone?), so I took the opportunity to re-image my laptop and set it up anew.  While getting all the little settings the way I like them, I figured I&rsquo;d write them down here so others may benefit.
 If you&rsquo;re using a mac for development, these are just a few applications and configuration settings that I like that you might like as well.  Most of these are collected from around the web with attribution via link.</p>
+
+<h2 id="stop-applications-from-starting-automatically-at-boot">stop applications from starting automatically at boot</h2>
+
+<p>Say you have a hundred tabs open in chrome, and a dozen or so applications that you don&rsquo;t really need running but have just been kind of adding up.  Eventually your laptop locks up due to some bug or you just have too many things open.  It&rsquo;s entirely unresponsive, so you hold down the power button to reboot it.  As it&rsquo;s starting back up, it dutifully tries to re-open everything that was running before the reboot.  Annoying, right?
+After making these changes, your mac will always boot without starting any applications.  (Even if you check the box that says you want it to &ndash; it won&rsquo;t.)<br />
+<a href="https://apple.stackexchange.com/questions/230719/how-to-disable-app-relaunch-and-window-restore-in-el-capitan-on-reboot">https://apple.stackexchange.com/questions/230719/how-to-disable-app-relaunch-and-window-restore-in-el-capitan-on-reboot</a></p>
+
+<pre><code>sudo su
+echo '' &gt; ~/Library/Preferences/ByHost/com.apple.loginwindow*
+chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*
+chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*
+</code></pre>
+
+<p>Then, go to <code>System Preferences &gt; Users &amp; Groups &gt; Login Items</code> and remove anything you don&rsquo;t want to start.<br />
+If you want to undo this for some reason, delete that file and it&rsquo;ll get re-created on next boot.</p>
 
 <h2 id="bash">bash</h2>
 

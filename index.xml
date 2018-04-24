@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2017</copyright>
-    <lastBuildDate>Tue, 10 Apr 2018 11:38:17 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 Apr 2018 11:38:19 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sapien</title>
+      <link>http://mims.io/2018/04/sapien/</link>
+      <pubDate>Tue, 24 Apr 2018 11:38:19 -0500</pubDate>
+      
+      <guid>http://mims.io/2018/04/sapien/</guid>
+      <description>The other night my wife and I were talking about an idea I had for a blockchain-based social media site that took the best things about reddit, but ran distributed on users&amp;rsquo; systems via blockchain, where people could buy credits and donate fractions of credits to content creators, and communities could form about geographies and interests, using the platform for news, discussion, community engagement, and just staying in touch with old friends.</description>
+    </item>
     
     <item>
       <title>MacOS Tweaks for Developers</title>

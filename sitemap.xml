@@ -53,12 +53,6 @@
   </url>
   
   <url>
-    <loc>http://mims.io/</loc>
-    <lastmod>2018-04-24T11:38:19-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://mims.io/post/</loc>
     <lastmod>2018-04-24T11:38:19-05:00</lastmod>
     <priority>0</priority>
@@ -79,6 +73,12 @@
   <url>
     <loc>http://mims.io/tags/</loc>
     <lastmod>2016-11-23T12:42:28-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mims.io/</loc>
+    <lastmod>2018-04-24T11:38:19-05:00</lastmod>
     <priority>0</priority>
   </url>
   

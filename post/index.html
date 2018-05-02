@@ -12,7 +12,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-04-24T11:38:19-05:00"/>
+<meta property="og:updated_time" content="2018-05-02T11:16:06-05:00"/>
 
 
 
@@ -40,7 +40,7 @@
     "@type": "Person",
     "name": "Charles Mims"
   },
-  "dateModified": "2018-04-24T11:38:19-05:00",
+  "dateModified": "2018-05-02T11:16:06-05:00",
   "keywords": "ramblings,speculation,",
   "description": "Software, DevOps, Food Hacking, DIY, whatever."
 }
@@ -110,6 +110,21 @@ ga('send', 'pageview');
 
 <article class="blog-post">
   <header>
+    <h2 class="blog-post-title"><a href="http://mims.io/2018/05/minio/">Minio</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-02T11:16:06-05:00">Wed May 02, 2018</time> by Charles Mims</p>
+  </header>
+  This project was mentioned to me a few years ago by a former coworker. At the time I thought it looked interesting, but never got around to trying it out and seeing what I could use it for.
+Essentially, it&rsquo;s a roll-your-own S3. Amazon S3 &ndash; &ldquo;Simple Storage Service&rdquo; &ndash; is a way for you to store files in AWS&rsquo;s cloud and let them handle the details. It comes with flexible security policies so you can control who accesses files, an HTTP REST-style interface (though if the bucket isn&rsquo;t public, security and other headers are required), can accept files up to 5TB, and is generally very reliable and fast.
+  <a href='http://mims.io/2018/05/minio/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
     <h2 class="blog-post-title"><a href="http://mims.io/2018/04/sapien/">Sapien</a></h2>
     <p class="blog-post-meta"><time datetime="2018-04-24T11:38:19-05:00">Tue Apr 24, 2018</time> by Charles Mims</p>
   </header>
@@ -164,21 +179,6 @@ $ mvn version ^C[11:09:43] cmims@MBP:~$ mvn -version Apache Maven 3.5.0 (ff8f5e7
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">blacklisting mbeans from Cassandra in jxm_exporter</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-09-13T11:50:09-05:00">Wed Sep 13, 2017</time> by Charles Mims</p>
-  </header>
-  Why: There is a bug in Cassandra v3.0.14 that was preventing cleanup of sstables while tombstones were being polled. https://issues.apache.org/jira/browse/CASSANDRA-13752
-As I understand it, this is happening because the method that cleans them up and the method that reports the metrics step on eachother&rsquo;s feet &ndash; getting metrics on tombstones interrups the cleanup and corrupts the table. It&rsquo;s supposed to be fixed in 3.0.15 due next week, but disabling the polling of this mbean should stop the badness.
-  <a href='http://mims.io/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   
@@ -209,6 +209,8 @@ As I understand it, this is happening because the method that cleans them up and
     <ol class="list-unstyled">
 
 
+<li><a href="/2018/05/minio/">Minio</a></li>
+
 <li><a href="/2018/04/sapien/">Sapien</a></li>
 
 <li><a href="/2018/04/improved-belt-tensioner-pulley-for-samsung-dryer/">Improved Belt Tensioner Pulley for Samsung Dryer</a></li>
@@ -216,8 +218,6 @@ As I understand it, this is happening because the method that cleans them up and
 <li><a href="/2018/04/macos-tweaks-for-developers/">MacOS Tweaks for Developers</a></li>
 
 <li><a href="/2017/09/get-docker-maven-plugin-to-work-with-docker-native-on-macos/">Get docker-maven-plugin to work with docker native on macos</a></li>
-
-<li><a href="/2017/09/blacklisting-mbeans-from-cassandra-in-jxm_exporter/">blacklisting mbeans from Cassandra in jxm_exporter</a></li>
 
     </ol>
   </section>

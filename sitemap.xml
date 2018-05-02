@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mims.io/2018/05/minio/</loc>
+    <lastmod>2018-05-02T11:16:06-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mims.io/2018/04/sapien/</loc>
     <lastmod>2018-04-24T11:38:19-05:00</lastmod>
   </url>
@@ -54,7 +59,7 @@
   
   <url>
     <loc>http://mims.io/post/</loc>
-    <lastmod>2018-04-24T11:38:19-05:00</lastmod>
+    <lastmod>2018-05-02T11:16:06-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,7 +83,7 @@
   
   <url>
     <loc>http://mims.io/</loc>
-    <lastmod>2018-04-24T11:38:19-05:00</lastmod>
+    <lastmod>2018-05-02T11:16:06-05:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Charles Mims 2018</copyright>
-    <lastBuildDate>Tue, 24 Apr 2018 11:38:19 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 11:16:06 -0500</lastBuildDate>
     
 	<atom:link href="http://mims.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Minio</title>
+      <link>http://mims.io/2018/05/minio/</link>
+      <pubDate>Wed, 02 May 2018 11:16:06 -0500</pubDate>
+      
+      <guid>http://mims.io/2018/05/minio/</guid>
+      <description>This project was mentioned to me a few years ago by a former coworker. At the time I thought it looked interesting, but never got around to trying it out and seeing what I could use it for.
+Essentially, it&amp;rsquo;s a roll-your-own S3. Amazon S3 &amp;ndash; &amp;ldquo;Simple Storage Service&amp;rdquo; &amp;ndash; is a way for you to store files in AWS&amp;rsquo;s cloud and let them handle the details. It comes with flexible security policies so you can control who accesses files, an HTTP REST-style interface (though if the bucket isn&amp;rsquo;t public, security and other headers are required), can accept files up to 5TB, and is generally very reliable and fast.</description>
+    </item>
     
     <item>
       <title>Sapien</title>

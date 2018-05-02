@@ -18,8 +18,8 @@
       <pubDate>Wed, 02 May 2018 11:16:06 -0500</pubDate>
       
       <guid>http://mims.io/2018/05/minio/</guid>
-      <description>This project was mentioned to me a few years ago by a former coworker. At the time I thought it looked interesting, but never got around to trying it out and seeing what I could use it for.
-Essentially, it&amp;rsquo;s a roll-your-own S3. Amazon S3 &amp;ndash; &amp;ldquo;Simple Storage Service&amp;rdquo; &amp;ndash; is a way for you to store files in AWS&amp;rsquo;s cloud and let them handle the details. It comes with flexible security policies so you can control who accesses files, an HTTP REST-style interface (though if the bucket isn&amp;rsquo;t public, security and other headers are required), can accept files up to 5TB, and is generally very reliable and fast.</description>
+      <description>This project was mentioned to me a few years ago by a former coworker. At the time I thought it looked interesting, but never got around to trying it out and seeing what I could use it for. Yesterday I found a use for it and I&amp;rsquo;m loving the possibilities.
+Essentially, it&amp;rsquo;s a roll-your-own S3. Amazon S3 &amp;ndash; &amp;ldquo;Simple Storage Service&amp;rdquo; &amp;ndash; is a way for you to store files in AWS&amp;rsquo;s cloud and let them handle the details.</description>
     </item>
     
     <item>
